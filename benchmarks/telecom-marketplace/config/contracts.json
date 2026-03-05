@@ -1,0 +1,31 @@
+{
+  "ws": "ws://127.0.0.1:8546",
+  "chainId": 12120014,
+  "Telecoin": {
+    "address": "0x2D92d4C9ADcFB07c2EC25b003a481146B39d5D0b",
+    "abi": "../../contracts/abi/Telecoin.json"
+  },
+  "AssetsContract": {
+    "address": "0xE81b8Eb98E8801E6d6a2f93A61528ec481B7Ea0B",
+    "abi": "../../contracts/abi/AssetsContract.json"
+  },
+  "HireAsset": {
+    "address": "0x57cB03745bA233725651e43c46135Ef2dF03061A",
+    "abi": "../../contracts/abi/HireAsset.json"
+  },
+  "ServiceContract": {
+    "address": "0xfA6dC3096149362Bfd6eea258911A75aE563F5dF",
+    "abi": "../../contracts/abi/ServiceContract.json"
+  },
+  "HireService": {
+    "address": "0xf287c2B9cECA0dE46b888f8E7283aa044C3E284E",
+    "abi": "../../contracts/abi/HireService.json"
+  },
+  "admin": {
+    "address": "0x0ac77157559c7fd1595c05428c9066d48932dc39"
+  },
+  "defaults": {
+    "tokenDecimals": 18,
+    "approvalAmount": "1000000000000000000000000"
+  }
+}

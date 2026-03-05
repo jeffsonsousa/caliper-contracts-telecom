@@ -1,0 +1,369 @@
+{
+  "runId": "mkf9nuu4-cc94",
+  "assetInitialSlices": 10,
+  "assetLockedValue": 9,
+  "serviceLockedValue": 200,
+  "renter": "0x0aC77157559c7FD1595c05428C9066D48932Dc39",
+  "assetsForHire": [
+    "asset-ml2tolri-93ca-001",
+    "asset-ml2tolri-93ca-002",
+    "asset-ml2tolri-93ca-003",
+    "asset-ml2tolri-93ca-004",
+    "asset-ml2tolri-93ca-005",
+    "asset-ml2tolri-93ca-006",
+    "asset-ml2tolri-93ca-007",
+    "asset-ml2tolri-93ca-008",
+    "asset-ml2tolri-93ca-009",
+    "asset-ml2tolri-93ca-010"
+  ],
+  "assetsForComposed": [
+    "asset-mkf9nuu4-cc94-001",
+    "asset-mkf9nuu4-cc94-002",
+    "asset-mkf9nuu4-cc94-003",
+    "asset-mkf9nuu4-cc94-004",
+    "asset-mkf9nuu4-cc94-005",
+    "asset-mkf9nuu4-cc94-006",
+    "asset-mkf9nuu4-cc94-007",
+    "asset-mkf9nuu4-cc94-008",
+    "asset-mkf9nuu4-cc94-009",
+    "asset-mkf9nuu4-cc94-010",
+    "asset-mkf9nuu4-cc94-011",
+    "asset-mkf9nuu4-cc94-012",
+    "asset-mkf9nuu4-cc94-013",
+    "asset-mkf9nuu4-cc94-014",
+    "asset-mkf9nuu4-cc94-015",
+    "asset-mkf9nuu4-cc94-016",
+    "asset-mkf9nuu4-cc94-017",
+    "asset-mkf9nuu4-cc94-018",
+    "asset-mkf9nuu4-cc94-019",
+    "asset-mkf9nuu4-cc94-020",
+    "asset-mkf9nuu4-cc94-021",
+    "asset-mkf9nuu4-cc94-022",
+    "asset-mkf9nuu4-cc94-023",
+    "asset-mkf9nuu4-cc94-024",
+    "asset-mkf9nuu4-cc94-025",
+    "asset-mkf9nuu4-cc94-026",
+    "asset-mkf9nuu4-cc94-027",
+    "asset-mkf9nuu4-cc94-028",
+    "asset-mkf9nuu4-cc94-029",
+    "asset-mkf9nuu4-cc94-030",
+    "asset-mkf9nuu4-cc94-031",
+    "asset-mkf9nuu4-cc94-032",
+    "asset-mkf9nuu4-cc94-033",
+    "asset-mkf9nuu4-cc94-034",
+    "asset-mkf9nuu4-cc94-035",
+    "asset-mkf9nuu4-cc94-036",
+    "asset-mkf9nuu4-cc94-037",
+    "asset-mkf9nuu4-cc94-038",
+    "asset-mkf9nuu4-cc94-039",
+    "asset-mkf9nuu4-cc94-040",
+    "asset-mkf9nuu4-cc94-041",
+    "asset-mkf9nuu4-cc94-042",
+    "asset-mkf9nuu4-cc94-043",
+    "asset-mkf9nuu4-cc94-044",
+    "asset-mkf9nuu4-cc94-045",
+    "asset-mkf9nuu4-cc94-046",
+    "asset-mkf9nuu4-cc94-047",
+    "asset-mkf9nuu4-cc94-048",
+    "asset-mkf9nuu4-cc94-049",
+    "asset-mkf9nuu4-cc94-050",
+    "asset-mkf9nuu4-cc94-051",
+    "asset-mkf9nuu4-cc94-052",
+    "asset-mkf9nuu4-cc94-053",
+    "asset-mkf9nuu4-cc94-054",
+    "asset-mkf9nuu4-cc94-055",
+    "asset-mkf9nuu4-cc94-056",
+    "asset-mkf9nuu4-cc94-057",
+    "asset-mkf9nuu4-cc94-058",
+    "asset-mkf9nuu4-cc94-059",
+    "asset-mkf9nuu4-cc94-060",
+    "asset-mkf9nuu4-cc94-061",
+    "asset-mkf9nuu4-cc94-062",
+    "asset-mkf9nuu4-cc94-063",
+    "asset-mkf9nuu4-cc94-064",
+    "asset-mkf9nuu4-cc94-065",
+    "asset-mkf9nuu4-cc94-066",
+    "asset-mkf9nuu4-cc94-067",
+    "asset-mkf9nuu4-cc94-068",
+    "asset-mkf9nuu4-cc94-069",
+    "asset-mkf9nuu4-cc94-070",
+    "asset-mkf9nuu4-cc94-071",
+    "asset-mkf9nuu4-cc94-072",
+    "asset-mkf9nuu4-cc94-073",
+    "asset-mkf9nuu4-cc94-074",
+    "asset-mkf9nuu4-cc94-075",
+    "asset-mkf9nuu4-cc94-076",
+    "asset-mkf9nuu4-cc94-077",
+    "asset-mkf9nuu4-cc94-078",
+    "asset-mkf9nuu4-cc94-079",
+    "asset-mkf9nuu4-cc94-080",
+    "asset-mkf9nuu4-cc94-081",
+    "asset-mkf9nuu4-cc94-082",
+    "asset-mkf9nuu4-cc94-083",
+    "asset-mkf9nuu4-cc94-084",
+    "asset-mkf9nuu4-cc94-085",
+    "asset-mkf9nuu4-cc94-086",
+    "asset-mkf9nuu4-cc94-087",
+    "asset-mkf9nuu4-cc94-088",
+    "asset-mkf9nuu4-cc94-089",
+    "asset-mkf9nuu4-cc94-090",
+    "asset-mkf9nuu4-cc94-091",
+    "asset-mkf9nuu4-cc94-092",
+    "asset-mkf9nuu4-cc94-093",
+    "asset-mkf9nuu4-cc94-094",
+    "asset-mkf9nuu4-cc94-095",
+    "asset-mkf9nuu4-cc94-096",
+    "asset-mkf9nuu4-cc94-097",
+    "asset-mkf9nuu4-cc94-098",
+    "asset-mkf9nuu4-cc94-099",
+    "asset-mkf9nuu4-cc94-100"
+  ],
+  "assetsForPay": [
+    "asset-ml2tolri-93ca-011",
+    "asset-ml2tolri-93ca-012",
+    "asset-ml2tolri-93ca-013",
+    "asset-ml2tolri-93ca-014",
+    "asset-ml2tolri-93ca-015",
+    "asset-ml2tolri-93ca-016",
+    "asset-ml2tolri-93ca-017",
+    "asset-ml2tolri-93ca-018",
+    "asset-ml2tolri-93ca-019",
+    "asset-ml2tolri-93ca-020",
+    "asset-ml2tolri-93ca-021",
+    "asset-ml2tolri-93ca-022",
+    "asset-ml2tolri-93ca-023",
+    "asset-ml2tolri-93ca-024",
+    "asset-ml2tolri-93ca-025",
+    "asset-ml2tolri-93ca-026",
+    "asset-ml2tolri-93ca-027",
+    "asset-ml2tolri-93ca-028",
+    "asset-ml2tolri-93ca-029",
+    "asset-ml2tolri-93ca-030"
+  ],
+  "servicesForHire": [
+    "service-mkf9nuu4-cc94-001",
+    "service-mkf9nuu4-cc94-002",
+    "service-mkf9nuu4-cc94-003",
+    "service-mkf9nuu4-cc94-004",
+    "service-mkf9nuu4-cc94-005",
+    "service-mkf9nuu4-cc94-006",
+    "service-mkf9nuu4-cc94-007",
+    "service-mkf9nuu4-cc94-008",
+    "service-mkf9nuu4-cc94-009",
+    "service-mkf9nuu4-cc94-010",
+    "service-mkf9nuu4-cc94-011",
+    "service-mkf9nuu4-cc94-012",
+    "service-mkf9nuu4-cc94-013",
+    "service-mkf9nuu4-cc94-014",
+    "service-mkf9nuu4-cc94-015",
+    "service-mkf9nuu4-cc94-016",
+    "service-mkf9nuu4-cc94-017",
+    "service-mkf9nuu4-cc94-018",
+    "service-mkf9nuu4-cc94-019",
+    "service-mkf9nuu4-cc94-020",
+    "service-mkf9nuu4-cc94-021",
+    "service-mkf9nuu4-cc94-022",
+    "service-mkf9nuu4-cc94-023",
+    "service-mkf9nuu4-cc94-024",
+    "service-mkf9nuu4-cc94-025",
+    "service-mkf9nuu4-cc94-026",
+    "service-mkf9nuu4-cc94-027",
+    "service-mkf9nuu4-cc94-028",
+    "service-mkf9nuu4-cc94-029",
+    "service-mkf9nuu4-cc94-030",
+    "service-mkf9nuu4-cc94-031",
+    "service-mkf9nuu4-cc94-032",
+    "service-mkf9nuu4-cc94-033",
+    "service-mkf9nuu4-cc94-034",
+    "service-mkf9nuu4-cc94-035",
+    "service-mkf9nuu4-cc94-036",
+    "service-mkf9nuu4-cc94-037",
+    "service-mkf9nuu4-cc94-038",
+    "service-mkf9nuu4-cc94-039",
+    "service-mkf9nuu4-cc94-040",
+    "service-mkf9nuu4-cc94-041",
+    "service-mkf9nuu4-cc94-042",
+    "service-mkf9nuu4-cc94-043",
+    "service-mkf9nuu4-cc94-044",
+    "service-mkf9nuu4-cc94-045",
+    "service-mkf9nuu4-cc94-046",
+    "service-mkf9nuu4-cc94-047",
+    "service-mkf9nuu4-cc94-048",
+    "service-mkf9nuu4-cc94-049",
+    "service-mkf9nuu4-cc94-050"
+  ],
+  "servicesForPay": [
+    "service-ml2tolri-93ca-011",
+    "service-ml2tolri-93ca-012",
+    "service-ml2tolri-93ca-013",
+    "service-ml2tolri-93ca-014",
+    "service-ml2tolri-93ca-015",
+    "service-ml2tolri-93ca-016",
+    "service-ml2tolri-93ca-017",
+    "service-ml2tolri-93ca-018",
+    "service-ml2tolri-93ca-019",
+    "service-ml2tolri-93ca-020",
+    "service-ml2tolri-93ca-021",
+    "service-ml2tolri-93ca-022",
+    "service-ml2tolri-93ca-023",
+    "service-ml2tolri-93ca-024",
+    "service-ml2tolri-93ca-025",
+    "service-ml2tolri-93ca-026",
+    "service-ml2tolri-93ca-027",
+    "service-ml2tolri-93ca-028",
+    "service-ml2tolri-93ca-029",
+    "service-ml2tolri-93ca-030"
+  ],
+  "composedToCreate": [
+    {
+      "serviceId": "composed-ml2tolri-93ca-001",
+      "assetIds": [
+        "asset-ml2tolri-93ca-011",
+        "asset-ml2tolri-93ca-012"
+      ],
+      "slices": [
+        5,
+        5
+      ],
+      "description": "fixture composed service 1",
+      "monthsAvailable": 12,
+      "price": 200,
+      "finalPrice": 220
+    },
+    {
+      "serviceId": "composed-ml2tolri-93ca-002",
+      "assetIds": [
+        "asset-ml2tolri-93ca-013",
+        "asset-ml2tolri-93ca-014"
+      ],
+      "slices": [
+        5,
+        5
+      ],
+      "description": "fixture composed service 2",
+      "monthsAvailable": 12,
+      "price": 200,
+      "finalPrice": 220
+    },
+    {
+      "serviceId": "composed-ml2tolri-93ca-003",
+      "assetIds": [
+        "asset-ml2tolri-93ca-015",
+        "asset-ml2tolri-93ca-016"
+      ],
+      "slices": [
+        5,
+        5
+      ],
+      "description": "fixture composed service 3",
+      "monthsAvailable": 12,
+      "price": 200,
+      "finalPrice": 220
+    },
+    {
+      "serviceId": "composed-ml2tolri-93ca-004",
+      "assetIds": [
+        "asset-ml2tolri-93ca-017",
+        "asset-ml2tolri-93ca-018"
+      ],
+      "slices": [
+        5,
+        5
+      ],
+      "description": "fixture composed service 4",
+      "monthsAvailable": 12,
+      "price": 200,
+      "finalPrice": 220
+    },
+    {
+      "serviceId": "composed-ml2tolri-93ca-005",
+      "assetIds": [
+        "asset-ml2tolri-93ca-019",
+        "asset-ml2tolri-93ca-020"
+      ],
+      "slices": [
+        5,
+        5
+      ],
+      "description": "fixture composed service 5",
+      "monthsAvailable": 12,
+      "price": 200,
+      "finalPrice": 220
+    },
+    {
+      "serviceId": "composed-ml2tolri-93ca-006",
+      "assetIds": [
+        "asset-ml2tolri-93ca-021",
+        "asset-ml2tolri-93ca-022"
+      ],
+      "slices": [
+        5,
+        5
+      ],
+      "description": "fixture composed service 6",
+      "monthsAvailable": 12,
+      "price": 200,
+      "finalPrice": 220
+    },
+    {
+      "serviceId": "composed-ml2tolri-93ca-007",
+      "assetIds": [
+        "asset-ml2tolri-93ca-023",
+        "asset-ml2tolri-93ca-024"
+      ],
+      "slices": [
+        5,
+        5
+      ],
+      "description": "fixture composed service 7",
+      "monthsAvailable": 12,
+      "price": 200,
+      "finalPrice": 220
+    },
+    {
+      "serviceId": "composed-ml2tolri-93ca-008",
+      "assetIds": [
+        "asset-ml2tolri-93ca-025",
+        "asset-ml2tolri-93ca-026"
+      ],
+      "slices": [
+        5,
+        5
+      ],
+      "description": "fixture composed service 8",
+      "monthsAvailable": 12,
+      "price": 200,
+      "finalPrice": 220
+    },
+    {
+      "serviceId": "composed-ml2tolri-93ca-009",
+      "assetIds": [
+        "asset-ml2tolri-93ca-027",
+        "asset-ml2tolri-93ca-028"
+      ],
+      "slices": [
+        5,
+        5
+      ],
+      "description": "fixture composed service 9",
+      "monthsAvailable": 12,
+      "price": 200,
+      "finalPrice": 220
+    },
+    {
+      "serviceId": "composed-ml2tolri-93ca-010",
+      "assetIds": [
+        "asset-ml2tolri-93ca-029",
+        "asset-ml2tolri-93ca-030"
+      ],
+      "slices": [
+        5,
+        5
+      ],
+      "description": "fixture composed service 10",
+      "monthsAvailable": 12,
+      "price": 200,
+      "finalPrice": 220
+    }
+  ]
+}

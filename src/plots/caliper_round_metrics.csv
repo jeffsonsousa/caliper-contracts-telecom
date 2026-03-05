@@ -1,0 +1,6 @@
+sut,Name,send_rate_tps,throughput_tps,avg_latency_s,max_latency_s,Succ,Fail,source_file
+report4,W5_CreateServiceRecordWithAssets,2.0,0.8,1.94,2.43,2,0,../report4.html
+report2,W5_CreateServiceRecordWithAssets,2.0,0.8,1.94,2.43,2,0,../report2.html
+report1,W5_CreateServiceRecordWithAssets,2.0,0.8,1.94,2.43,2,0,../report1.html
+report,W5_CreateServiceRecordWithAssets,2.0,0.8,1.94,2.43,2,0,../report.html
+report3,W5_CreateServiceRecordWithAssets,2.0,0.8,1.94,2.43,2,0,../report3.html

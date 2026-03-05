@@ -1,0 +1,1988 @@
+{
+  "caliper": {
+    "blockchain": "ethereum",
+    "command": {}
+  },
+  "ethereum": {
+    "url": "ws://127.0.0.1:8646",
+    "fromAddress": "0x0ac77157559c7fd1595c05428c9066d48932dc39",
+    "fromAddressPrivateKey": "0xd48018e87c7f29fb441de1e0b7dc160f9fdb7efd542556c11e245e24f37eb102",
+    "transactionConfirmationBlocks": 1,
+    "chainId": 12120014,
+    "contracts": {
+      "Telecoin": {
+        "address": "0x2D92d4C9ADcFB07c2EC25b003a481146B39d5D0b",
+        "estimateGas": true,
+        "gas": {
+          "transfer": 10000000
+        },
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "initialOwner",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "allowance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "needed",
+                "type": "uint256"
+              }
+            ],
+            "name": "ERC20InsufficientAllowance",
+            "type": "error"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "sender",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "balance",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "needed",
+                "type": "uint256"
+              }
+            ],
+            "name": "ERC20InsufficientBalance",
+            "type": "error"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "approver",
+                "type": "address"
+              }
+            ],
+            "name": "ERC20InvalidApprover",
+            "type": "error"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "receiver",
+                "type": "address"
+              }
+            ],
+            "name": "ERC20InvalidReceiver",
+            "type": "error"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "sender",
+                "type": "address"
+              }
+            ],
+            "name": "ERC20InvalidSender",
+            "type": "error"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+              }
+            ],
+            "name": "ERC20InvalidSpender",
+            "type": "error"
+          },
+          {
+            "inputs": [],
+            "name": "EnforcedPause",
+            "type": "error"
+          },
+          {
+            "inputs": [],
+            "name": "ExpectedPause",
+            "type": "error"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+              }
+            ],
+            "name": "OwnableInvalidOwner",
+            "type": "error"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "OwnableUnauthorizedAccount",
+            "type": "error"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+              }
+            ],
+            "name": "Approval",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+              }
+            ],
+            "name": "OwnershipTransferred",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "Paused",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+              }
+            ],
+            "name": "Transfer",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "Unpaused",
+            "type": "event"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+              }
+            ],
+            "name": "allowance",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+              }
+            ],
+            "name": "approve",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "balanceOf",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+              }
+            ],
+            "name": "burn",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+              }
+            ],
+            "name": "burnFrom",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "decimals",
+            "outputs": [
+              {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+              }
+            ],
+            "name": "mint",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "name",
+            "outputs": [
+              {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "owner",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "pause",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "paused",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "renounceOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "symbol",
+            "outputs": [
+              {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "totalSupply",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+              }
+            ],
+            "name": "transfer",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+              }
+            ],
+            "name": "transferFrom",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+              }
+            ],
+            "name": "transferOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "unpause",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+              }
+            ],
+            "name": "withdraw",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ]
+      },
+      "ServiceContract": {
+        "address": "0xfA6dC3096149362Bfd6eea258911A75aE563F5dF",
+        "estimateGas": true,
+        "gas": {
+          "CreateServiceRecord": 10000000,
+          "CreateServiceRecordWithAssets": 10000000
+        },
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "_assetsContractAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "_contractTLC",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+              }
+            ],
+            "name": "OwnableInvalidOwner",
+            "type": "error"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "OwnableUnauthorizedAccount",
+            "type": "error"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+              }
+            ],
+            "name": "OwnershipTransferred",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "string",
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "supplier",
+                "type": "address"
+              }
+            ],
+            "name": "RegisteredService",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "string",
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "sender",
+                "type": "address"
+              }
+            ],
+            "name": "ServiceHired",
+            "type": "event"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "serviceId",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "monthsAvailable",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "finalPrice",
+                "type": "uint256"
+              }
+            ],
+            "name": "CreateServiceRecord",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "serviceId",
+                "type": "string"
+              },
+              {
+                "internalType": "string[]",
+                "name": "assetIds",
+                "type": "string[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "slices",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "string",
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "monthsAvailable",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "finalPrice",
+                "type": "uint256"
+              }
+            ],
+            "name": "CreateServiceRecordWithAssets",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "serviceId",
+                "type": "string"
+              },
+              {
+                "internalType": "address",
+                "name": "callerAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "sender",
+                "type": "address"
+              }
+            ],
+            "name": "_hireService",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "assetsContract",
+            "outputs": [
+              {
+                "internalType": "contract AssetsContract",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "internalType": "address",
+                "name": "renterAddress",
+                "type": "address"
+              }
+            ],
+            "name": "checkServiceOpenStatus",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "contractService",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "Id",
+                "type": "string"
+              }
+            ],
+            "name": "getProvider",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "serviceId",
+                "type": "string"
+              }
+            ],
+            "name": "getservice",
+            "outputs": [
+              {
+                "components": [
+                  {
+                    "internalType": "string",
+                    "name": "serviceId",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "string[]",
+                    "name": "assetIds",
+                    "type": "string[]"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "supplier",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "description",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "startOffer",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "availability",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "initialPrice",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "totalPrice",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "registered",
+                    "type": "bool"
+                  },
+                  {
+                    "internalType": "enum ServiceStatus",
+                    "name": "status",
+                    "type": "uint8"
+                  }
+                ],
+                "internalType": "struct ServicesMetadata",
+                "name": "servicesMetadata",
+                "type": "tuple"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "serviceId",
+                "type": "string"
+              },
+              {
+                "internalType": "address",
+                "name": "renterAddress",
+                "type": "address"
+              }
+            ],
+            "name": "getserviceHired",
+            "outputs": [
+              {
+                "components": [
+                  {
+                    "internalType": "string",
+                    "name": "id",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "renter",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "startRent",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "lockedValue",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "openStatus",
+                    "type": "bool"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "hireAddress",
+                    "type": "address"
+                  }
+                ],
+                "internalType": "struct ServiceRenters",
+                "name": "serviceRenters",
+                "type": "tuple"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "owner",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "renounceOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "token",
+            "outputs": [
+              {
+                "internalType": "contract IERC20",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+              }
+            ],
+            "name": "transferOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "Id",
+                "type": "string"
+              },
+              {
+                "internalType": "address",
+                "name": "renterAddress",
+                "type": "address"
+              }
+            ],
+            "name": "updateRenterDetails",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ]
+      },
+      "AssetsContract": {
+        "address": "0xE81b8Eb98E8801E6d6a2f93A61528ec481B7Ea0B",
+        "estimateGas": true,
+        "gas": {
+          "CreateAssetsRegistry": 10000000
+        },
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "_contractTLC",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "_contractOwnerTLC",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+              }
+            ],
+            "name": "OwnableInvalidOwner",
+            "type": "error"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "OwnableUnauthorizedAccount",
+            "type": "error"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "string",
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "renter",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "slices",
+                "type": "uint256"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+              }
+            ],
+            "name": "AssetHired",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "string",
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "supplier",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "slices",
+                "type": "uint256"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "totalPrice",
+                "type": "uint256"
+              }
+            ],
+            "name": "AssetRegistered",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+              }
+            ],
+            "name": "OwnershipTransferred",
+            "type": "event"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "Id",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "slices",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "monthsAvailable",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "totalPrice",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "pricePerSlice",
+                "type": "uint256"
+              }
+            ],
+            "name": "CreateAssetsRegistry",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "Id",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "slices",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "callerAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "sender",
+                "type": "address"
+              }
+            ],
+            "name": "_hireAsset",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "internalType": "address",
+                "name": "renterAddress",
+                "type": "address"
+              }
+            ],
+            "name": "checkOpenStatus",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "contractCreatedAt",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "contractOwnerTLC",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "contractTLC",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "Id",
+                "type": "string"
+              }
+            ],
+            "name": "getAssets",
+            "outputs": [
+              {
+                "components": [
+                  {
+                    "internalType": "string",
+                    "name": "id",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "supplier",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "string",
+                    "name": "description",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "startOffer",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "amount",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "amountPerSlices",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "slices",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "initialSlices",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "availability",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "totalPrice",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "pricePerSlice",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "registered",
+                    "type": "bool"
+                  },
+                  {
+                    "internalType": "enum Status",
+                    "name": "status",
+                    "type": "uint8"
+                  }
+                ],
+                "internalType": "struct AssetsMetadata",
+                "name": "",
+                "type": "tuple"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "Id",
+                "type": "string"
+              }
+            ],
+            "name": "getAssetsStatus",
+            "outputs": [
+              {
+                "internalType": "enum Status",
+                "name": "",
+                "type": "uint8"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              },
+              {
+                "internalType": "string",
+                "name": "id",
+                "type": "string"
+              }
+            ],
+            "name": "getRenter",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "assetId",
+                "type": "string"
+              },
+              {
+                "internalType": "address",
+                "name": "renterAddress",
+                "type": "address"
+              }
+            ],
+            "name": "getRenterDetails",
+            "outputs": [
+              {
+                "components": [
+                  {
+                    "internalType": "string",
+                    "name": "id",
+                    "type": "string"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "renter",
+                    "type": "address"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "slice",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "startRent",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "lockedValue",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "bool",
+                    "name": "openStatus",
+                    "type": "bool"
+                  },
+                  {
+                    "internalType": "address",
+                    "name": "hireAddress",
+                    "type": "address"
+                  }
+                ],
+                "internalType": "struct Renters",
+                "name": "",
+                "type": "tuple"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "Id",
+                "type": "string"
+              }
+            ],
+            "name": "getSupplier",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "owner",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "renounceOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "token",
+            "outputs": [
+              {
+                "internalType": "contract IERC20",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+              }
+            ],
+            "name": "transferOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "Id",
+                "type": "string"
+              },
+              {
+                "internalType": "address",
+                "name": "renterAddress",
+                "type": "address"
+              }
+            ],
+            "name": "updateRenterDetails",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ]
+      },
+      "HireService": {
+        "address": "0xf287c2B9cECA0dE46b888f8E7283aa044C3E284E",
+        "estimateGas": true,
+        "gas": {
+          "hireService": 8000000,
+          "payService": 8000000
+        },
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "_ServiceContractAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "_contractTLC",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+              }
+            ],
+            "name": "OwnableInvalidOwner",
+            "type": "error"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "OwnableUnauthorizedAccount",
+            "type": "error"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+              }
+            ],
+            "name": "OwnershipTransferred",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "string",
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "renter",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "payment",
+                "type": "uint256"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "refund",
+                "type": "uint256"
+              }
+            ],
+            "name": "PaymentMade",
+            "type": "event"
+          },
+          {
+            "inputs": [],
+            "name": "getContractBalance",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "serviceId",
+                "type": "string"
+              }
+            ],
+            "name": "hireService",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "owner",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "Id",
+                "type": "string"
+              },
+              {
+                "internalType": "address",
+                "name": "renterAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "payment",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "refund",
+                "type": "uint256"
+              }
+            ],
+            "name": "payService",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "renounceOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "serviceContract",
+            "outputs": [
+              {
+                "internalType": "contract ServiceContract",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "token",
+            "outputs": [
+              {
+                "internalType": "contract IERC20",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+              }
+            ],
+            "name": "transferOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ]
+      },
+      "HireAsset": {
+        "address": "0x57cB03745bA233725651e43c46135Ef2dF03061A",
+        "estimateGas": true,
+        "gas": {
+          "hireAsset": 8000000,
+          "payAsset": 8000000
+        },
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "_serviceContractAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "_contractTLC",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+              }
+            ],
+            "name": "OwnableInvalidOwner",
+            "type": "error"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "OwnableUnauthorizedAccount",
+            "type": "error"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+              }
+            ],
+            "name": "OwnershipTransferred",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "string",
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "renter",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "payment",
+                "type": "uint256"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "refund",
+                "type": "uint256"
+              }
+            ],
+            "name": "PaymentMade",
+            "type": "event"
+          },
+          {
+            "inputs": [],
+            "name": "assetsContract",
+            "outputs": [
+              {
+                "internalType": "contract AssetsContract",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "getContractBalance",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "Id",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "slices",
+                "type": "uint256"
+              }
+            ],
+            "name": "hireAsset",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "owner",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "Id",
+                "type": "string"
+              },
+              {
+                "internalType": "address",
+                "name": "renterAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "payment",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "refund",
+                "type": "uint256"
+              }
+            ],
+            "name": "payAsset",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "renounceOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "token",
+            "outputs": [
+              {
+                "internalType": "contract IERC20",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+              }
+            ],
+            "name": "transferOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ]
+      }
+    },
+    "accounts": {
+      "default": [
+        {
+          "address": "0x0ac77157559c7fd1595c05428c9066d48932dc39",
+          "privateKey": "0xd48018e87c7f29fb441de1e0b7dc160f9fdb7efd542556c11e245e24f37eb102"
+        },
+        {
+          "address": "0x4b6d82c0e8d39300ebc28204fc0e3ea0fe59078c",
+          "privateKey": "0x689462c1fc5cd966b42f5d4394a1fdbdf78b6ee45dc25e0014f2a82abb2e4bcd"
+        },
+        {
+          "address": "0x4e18fa70364626e9df2f4fd5d1209a9def338d1c",
+          "privateKey": "0xcd099e89eef000e59d781ed01b283cff1c10010d09d88f77888d8dd61fa072ef"
+        },
+        {
+          "address": "0xad757ece9fe7d5c10f4f59f15cc985a670f894ff",
+          "privateKey": "0x941213013e690e49a00cbd4281e3445e56c79a4d4d12f7b1883a11084609c52e"
+        }
+      ]
+    }
+  }
+}

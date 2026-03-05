@@ -1,0 +1,60 @@
+{
+  "caliper": {
+    "blockchain": "ethereum"
+  },
+  "ethereum": {
+    "url": "ws://127.0.0.1:8645",
+    "chainId": 12120014,
+    "gas": {
+      "limit": 8000000
+    },
+    "contracts": [
+      {
+        "name": "Telecoin",
+        "address": "0x2D92d4C9ADcFB07c2EC25b003a481146B39d5D0b",
+        "estimateGas": true,
+        "contract": "contracts/definitions/Telecoin.json"
+      },
+      {
+        "name": "AssetsContract",
+        "address": "0xE81b8Eb98E8801E6d6a2f93A61528ec481B7Ea0B",
+        "contract": "contracts/definitions/AssetsContract.json"
+      },
+      {
+        "name": "HireAsset",
+        "address": "0x57cB03745bA233725651e43c46135Ef2dF03061A",
+        "contract": "contracts/definitions/HireAsset.json"
+      },
+      {
+        "name": "ServiceContract",
+        "address": "0xfA6dC3096149362Bfd6eea258911A75aE563F5dF",
+        "contract": "contracts/definitions/ServiceContract.json"
+      },
+      {
+        "name": "HireService",
+        "address": "0xf287c2B9cECA0dE46b888f8E7283aa044C3E284E",
+        "contract": "contracts/definitions/HireService.json"
+      }
+    ],
+    "accounts": {
+      "default": [
+        {
+          "address": "0x0ac77157559c7fd1595c05428c9066d48932dc39",
+          "privateKey": "0xd48018e87c7f29fb441de1e0b7dc160f9fdb7efd542556c11e245e24f37eb102"
+        },
+        {
+          "address": "0x4b6d82c0e8d39300ebc28204fc0e3ea0fe59078c",
+          "privateKey": "0x689462c1fc5cd966b42f5d4394a1fdbdf78b6ee45dc25e0014f2a82abb2e4bcd"
+        },
+        {
+          "address": "0x4e18fa70364626e9df2f4fd5d1209a9def338d1c",
+          "privateKey": "0xcd099e89eef000e59d781ed01b283cff1c10010d09d88f77888d8dd61fa072ef"
+        },
+        {
+          "address": "0xad757ece9fe7d5c10f4f59f15cc985a670f894ff",
+          "privateKey": "0x941213013e690e49a00cbd4281e3445e56c79a4d4d12f7b1883a11084609c52e"
+        }
+      ]
+    }
+  }
+}

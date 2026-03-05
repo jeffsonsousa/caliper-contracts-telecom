@@ -1,0 +1,456 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_assetsContractAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_contractTLC",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnableInvalidOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "OwnableUnauthorizedAccount",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "string",
+        "name": "id",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "supplier",
+        "type": "address"
+      }
+    ],
+    "name": "RegisteredService",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "string",
+        "name": "id",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "ServiceHired",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "serviceId",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "monthsAvailable",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "finalPrice",
+        "type": "uint256"
+      }
+    ],
+    "name": "CreateServiceRecord",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "serviceId",
+        "type": "string"
+      },
+      {
+        "internalType": "string[]",
+        "name": "assetIds",
+        "type": "string[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "slices",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "string",
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "monthsAvailable",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "finalPrice",
+        "type": "uint256"
+      }
+    ],
+    "name": "CreateServiceRecordWithAssets",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "serviceId",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "callerAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "_hireService",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "assetsContract",
+    "outputs": [
+      {
+        "internalType": "contract AssetsContract",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "id",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "renterAddress",
+        "type": "address"
+      }
+    ],
+    "name": "checkServiceOpenStatus",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "contractService",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "Id",
+        "type": "string"
+      }
+    ],
+    "name": "getProvider",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "serviceId",
+        "type": "string"
+      }
+    ],
+    "name": "getservice",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "serviceId",
+            "type": "string"
+          },
+          {
+            "internalType": "string[]",
+            "name": "assetIds",
+            "type": "string[]"
+          },
+          {
+            "internalType": "address",
+            "name": "supplier",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "startOffer",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "availability",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "initialPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "registered",
+            "type": "bool"
+          },
+          {
+            "internalType": "enum ServiceStatus",
+            "name": "status",
+            "type": "uint8"
+          }
+        ],
+        "internalType": "struct ServicesMetadata",
+        "name": "servicesMetadata",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "serviceId",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "renterAddress",
+        "type": "address"
+      }
+    ],
+    "name": "getserviceHired",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "renter",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "startRent",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lockedValue",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "openStatus",
+            "type": "bool"
+          },
+          {
+            "internalType": "address",
+            "name": "hireAddress",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct ServiceRenters",
+        "name": "serviceRenters",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "token",
+    "outputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "Id",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "renterAddress",
+        "type": "address"
+      }
+    ],
+    "name": "updateRenterDetails",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

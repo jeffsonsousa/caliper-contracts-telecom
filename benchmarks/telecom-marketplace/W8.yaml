@@ -1,0 +1,122 @@
+test:
+  name: telecom-marketplace
+  description: Benchmarks W1–W11 for Telecom Marketplace on Besu
+  workers:
+    type: local
+    number: 4
+
+rounds:
+  - label: W1_RegisterAsset
+    description: CreateAssetsRegistry
+    txDuration: 30
+    rateControl: { type: fixed-rate, opts: { tps: 5 } }
+    workload:
+      module: benchmarks/telecom-marketplace/workloads/W1_RegisterAsset.js
+      arguments:
+        slices: [1, 10, 100]
+        monthsAvailable: [1, 12]
+        descSize: ["short", "long"]
+
+  - label: W2_HireAsset
+    description: hireAsset (HireAsset -> AssetsContract._hireAsset)
+    txNumber: 2
+    rateControl: { type: fixed-rate, opts: { tps: 1 } }
+    workload:
+      module: benchmarks/telecom-marketplace/workloads/W2_HireAsset.js
+      arguments: {}
+
+  - label: W3_PayAsset
+    description: payAsset (settlement)
+    txDuration: 30
+    rateControl: { type: fixed-rate, opts: { tps: 10 } }
+    workload:
+      module: benchmarks/telecom-marketplace/workloads/W3_PayAsset.js
+      arguments:
+        patterns:
+          - { paymentPct: 100, refundPct: 0 }
+          - { paymentPct: 50, refundPct: 50 }
+          - { paymentPct: 0, refundPct: 100 }
+
+  - label: W4_CreateServiceRecord
+    description: CreateServiceRecord (no assets)
+    txDuration: 30
+    rateControl: { type: fixed-rate, opts: { tps: 5 } }
+    workload:
+      module: benchmarks/telecom-marketplace/workloads/W4_CreateServiceRecord.js
+      arguments:
+        descSize: ["short", "long"]
+        monthsAvailable: [1, 12]
+        priceProfile:
+          - { initialPrice: 100, totalPrice: 120 }
+          - { initialPrice: 500, totalPrice: 650 }
+
+  - label: W5_CreateServiceRecordWithAssets
+    description: CreateServiceRecordWithAssets (payload scaling)
+    txDuration: 30
+    rateControl: { type: fixed-rate, opts: { tps: 3 } }
+    workload:
+      module: benchmarks/telecom-marketplace/workloads/W5_CreateServiceRecordWithAssets.js
+      arguments:
+        N: [1, 3, 5, 10]
+        monthsAvailable: [1]
+        priceProfile:
+          - { initialPrice: 200, totalPrice: 260 }
+
+  - label: W6_HireService
+    description: hireService (HireService -> ServiceContract._hireService)
+    txDuration: 30
+    rateControl: { type: fixed-rate, opts: { tps: 10 } }
+    workload:
+      module: benchmarks/telecom-marketplace/workloads/W6_HireService.js
+      arguments: {}
+
+  - label: W7_PayService
+    description: payService (settlement)
+    txDuration: 30
+    rateControl: { type: fixed-rate, opts: { tps: 10 } }
+    workload:
+      module: benchmarks/telecom-marketplace/workloads/W7_PayService.js
+      arguments:
+        patterns:
+          - { paymentPct: 100, refundPct: 0 }
+          - { paymentPct: 50, refundPct: 50 }
+
+  - label: W8_E2E_Mix
+    description: End-to-end tx mix (probabilistic)
+    txDuration: 60
+    rateControl: { type: fixed-rate, opts: { tps: 30 } }
+    workload:
+      module: benchmarks/telecom-marketplace/workloads/W8_Mix.js
+      arguments:
+        mix:
+          RegisterAsset: 0.10
+          HireAsset: 0.25
+          CreateServiceWithAssets: 0.20
+          HireService: 0.25
+          Pay: 0.20
+
+  - label: W9_HotAsset_Contention
+    description: Many renters competing for slices of one asset
+    txDuration: 60
+    rateControl: { type: fixed-rate, opts: { tps: 80 } }
+    workload:
+      module: benchmarks/telecom-marketplace/workloads/W9_HotAsset.js
+      arguments:
+        requestSlice: 1
+
+  - label: W10_HotService_Contention
+    description: Many clients hiring the same service
+    txDuration: 60
+    rateControl: { type: fixed-rate, opts: { tps: 80 } }
+    workload:
+      module: benchmarks/telecom-marketplace/workloads/W10_HotService.js
+      arguments: {}
+
+  - label: W11_PayloadScaling
+    description: Repeat payload scaling for CreateServiceRecordWithAssets
+    txDuration: 60
+    rateControl: { type: fixed-rate, opts: { tps: 5 } }
+    workload:
+      module: benchmarks/telecom-marketplace/workloads/W11_PayloadScaling.js
+      arguments:
+        N: [1, 3, 5, 10]
